@@ -29,6 +29,6 @@ public class Movies implements Serializable{
 /*{
     "id": 1,
     "title": "Who Killed My Family",
-    "description": "Amans faily is killed and he goes back to revenge",
+    "description": "A mans family is killed and he goes back for revenge",
     "genre": "Action"
 }*/
