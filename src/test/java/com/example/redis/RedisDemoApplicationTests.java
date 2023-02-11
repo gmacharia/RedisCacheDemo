@@ -6,6 +6,7 @@ import com.example.redis.service.MovieService;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotSame;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import static org.mockito.Mockito.times;
@@ -67,26 +68,19 @@ public class RedisDemoApplicationTests {
         long id = 1;
 
         Movies currentMovie = new Movies(1, "Who Killed My Family", "Amans faily is killed and he goes back to revenge", "Action");
+        Movies edittedMovies = new Movies(); //holder
         
-        currentMovie.setDescription("A mans family is killed and he goes back for revenge");
+        edittedMovies.setDescription("A mans family is killed and he goes back for revenge");
 
         //lets create another for the updated change we want
         Movies newMovie = Movies.builder()
                 .id(id)
                 .title(currentMovie.getTitle())
-                .description(currentMovie.getDescription())
+                .description(edittedMovies.getDescription())
                 .genre(currentMovie.getGenre())
                 .build();
 
-       // Movies movie = repository.saveMovies(newMovie);
-
-        //lets fetch movies updated
-       /*  when(repository.fetchMovieById(id))
-                .thenReturn(movie);
-        
-        System.out.println("---------------------"+movie.getTitle());*/
-
-        assertEquals(currentMovie.getDescription(), newMovie.getDescription());
+        assertNotSame(currentMovie.getDescription(), newMovie.getDescription());
 
     }
 }
