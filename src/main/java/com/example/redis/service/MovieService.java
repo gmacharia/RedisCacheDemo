@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface MovieService {
 
-    boolean saveMovies(Movies movie);
+    Movies saveMovies(Movies movie);
 
     List<Movies> fetchAllMovies();
 

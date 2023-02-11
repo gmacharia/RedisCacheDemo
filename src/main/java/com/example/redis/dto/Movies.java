@@ -5,13 +5,19 @@
 package com.example.redis.dto;
 
 import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author kobe
  */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Movies implements Serializable{
     private long id;
     private String title;

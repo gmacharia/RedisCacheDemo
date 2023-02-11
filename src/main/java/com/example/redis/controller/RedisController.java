@@ -31,13 +31,8 @@ public class RedisController {
     private final MovieService movieService;
 
     @PostMapping("/movie")
-    public ResponseEntity<String> saveMovie(@RequestBody Movies movies) {
-        boolean result = movieService.saveMovies(movies);
-        if (result) {
-            return ResponseEntity.ok("Movie Created Successfully!!");
-        } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
+    public ResponseEntity<Movies> saveMovie(@RequestBody Movies movies) {
+        return new ResponseEntity<>(movieService.saveMovies(movies), HttpStatus.OK);
     }
 
     @GetMapping("/movie")

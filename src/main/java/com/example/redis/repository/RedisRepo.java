@@ -22,13 +22,9 @@ public class RedisRepo {
 
     private static final String KEY = "MOVIE";
 
-    public boolean saveMovies(Movies movie) {
-        try {
+    public Movies saveMovies(Movies movie) {
             redisTemplate.opsForHash().put(KEY, movie.getId(), movie);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+            return movie;
     }  
     
     public List<Movies> fetchAllMovies() {

@@ -21,8 +21,8 @@ public class MovieServiceImpl implements MovieService {
     private final RedisRepo redisRepo;
 
     @Override
-    public boolean saveMovies(Movies movie) {
-        boolean response = redisRepo.saveMovies(movie);
+    public Movies saveMovies(Movies movie) {
+        Movies response = redisRepo.saveMovies(movie);
         return response;
     }  
     
