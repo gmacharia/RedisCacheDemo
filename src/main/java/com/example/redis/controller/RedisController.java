@@ -60,13 +60,9 @@ public class RedisController {
     }
 
     @PutMapping("/movie/{id}")
-    public ResponseEntity<String> updateUser(@PathVariable("id") Long id, @RequestBody Movies movie) {
-        boolean result = movieService.updateMovie(id, movie);
-        if (result) {
-            return ResponseEntity.ok("Movie Updated Successfully!!");
-        } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
+    public ResponseEntity<Movies> updateUser(@PathVariable("id") Long id, @RequestBody Movies movie) {
+        return new ResponseEntity<>(movieService.updateMovie(id, movie), HttpStatus.OK);
+      
     }
 
 }

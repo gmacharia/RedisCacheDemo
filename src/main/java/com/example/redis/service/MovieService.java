@@ -21,5 +21,5 @@ public interface MovieService {
 
     boolean deleteMovie(Long id);
 
-    boolean updateMovie(Long id, Movies movie);
+    Movies updateMovie(Long id, Movies movie);
 }

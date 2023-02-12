@@ -6,7 +6,6 @@ import com.example.redis.service.MovieService;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotSame;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import static org.mockito.Mockito.times;
@@ -79,8 +78,8 @@ public class RedisDemoApplicationTests {
                 .description(edittedMovies.getDescription())
                 .genre(currentMovie.getGenre())
                 .build();
-
-        assertNotSame(currentMovie.getDescription(), newMovie.getDescription());
+       
+        assertEquals(repository.updateMovie(id, newMovie), movieService.fetchMovieById(id));
 
     }
 }

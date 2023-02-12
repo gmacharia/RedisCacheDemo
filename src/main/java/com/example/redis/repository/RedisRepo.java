@@ -23,37 +23,33 @@ public class RedisRepo {
     private static final String KEY = "MOVIE";
 
     public Movies saveMovies(Movies movie) {
-            redisTemplate.opsForHash().put(KEY, movie.getId(), movie);
-            return movie;
-    }  
-    
+        redisTemplate.opsForHash().put(KEY, movie.getId(), movie);
+        return movie;
+    }
+
     public List<Movies> fetchAllMovies() {
         List<Movies> users;
         users = redisTemplate.opsForHash().values(KEY);
-        return  users;
+        return users;
     }
 
     public Movies fetchMovieById(Long id) {
         Movies movie;
-        movie = (Movies) redisTemplate.opsForHash().get(KEY,id.toString());
+        movie = (Movies) redisTemplate.opsForHash().get(KEY, id.toString());
         return movie;
     }
 
     public boolean deleteMovie(Long id) {
         try {
-            redisTemplate.opsForHash().delete(KEY,id.toString());
+            redisTemplate.opsForHash().delete(KEY, id.toString());
             return true;
         } catch (Exception e) {
             return false;
         }
     }
 
-    public boolean updateMovie(Long id, Movies movie) {
-        try {
-            redisTemplate.opsForHash().put(KEY, id, movie);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+    public Movies updateMovie(Long id, Movies movie) {
+        redisTemplate.opsForHash().put(KEY, id, movie);
+        return movie;
     }
 }

@@ -42,7 +42,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public boolean updateMovie(Long id, Movies movie) {
+    public Movies updateMovie(Long id, Movies movie) {
         return redisRepo.updateMovie(id,movie);
     }
     
