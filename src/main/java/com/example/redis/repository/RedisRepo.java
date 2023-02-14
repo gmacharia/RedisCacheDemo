@@ -41,7 +41,7 @@ public class RedisRepo {
 
     public boolean deleteMovie(Long id) {
         try {
-            redisTemplate.opsForHash().delete(KEY, id.toString());
+            redisTemplate.opsForHash().delete(KEY, id);
             return true;
         } catch (Exception e) {
             return false;
