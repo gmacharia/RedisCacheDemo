@@ -4,25 +4,15 @@
  */
 package com.example.redis.config;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
 /**
  *
  * @author kobe
  */
-@Component
-@Configuration
 @ConfigurationProperties("redis.props")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class RedisProperties {
-    private String hostName;
-    private int port;
-    
+public record RedisProperties(
+        String hostName,
+        int port)  { 
+
 }

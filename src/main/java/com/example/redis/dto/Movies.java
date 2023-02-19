@@ -26,9 +26,18 @@ public class Movies implements Serializable{
     
 }
 
-/*{
-    "id": 1,
-    "title": "Who Killed My Family",
-    "description": "A mans family is killed and he goes back for revenge",
-    "genre": "Action"
-}*/
+/*[
+    {
+        "id": 1,
+        "title": "Friends",
+        "description": "Follow the lives of six reckless adults living in Manhattan, as they indulge in adventures which make their lives both troublesome and happening.",
+        "genre": "Comedy"
+    },
+    {
+        "id": 2,
+        "title": "Who Killed My Family",
+        "description": "A mans family is killed and he goes back for revenge",
+        "genre": "Action"
+    }
+]*/
+

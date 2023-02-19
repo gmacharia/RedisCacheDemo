@@ -1,0 +1,3 @@
+FROM redis
+COPY redis.conf /redis/redis.conf
+CMD [ "spring-redis-demo", "/redis/redis.conf" ]
